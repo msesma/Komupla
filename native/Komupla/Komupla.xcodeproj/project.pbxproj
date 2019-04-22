@@ -12,7 +12,23 @@
 		49EE2088226DD9CA0041F3FF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49EE2086226DD9CA0041F3FF /* Main.storyboard */; };
 		49EE208A226DD9CC0041F3FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49EE2089226DD9CC0041F3FF /* Assets.xcassets */; };
 		49EE208D226DD9CC0041F3FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49EE208B226DD9CC0041F3FF /* LaunchScreen.storyboard */; };
+		49EE2095226DDD480041F3FF /* SharedCode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49EE2094226DDD480041F3FF /* SharedCode.framework */; };
+		49EE2096226DDD480041F3FF /* SharedCode.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 49EE2094226DDD480041F3FF /* SharedCode.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		49EE2097226DDD480041F3FF /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				49EE2096226DDD480041F3FF /* SharedCode.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		49EE207F226DD9CA0041F3FF /* Komupla.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Komupla.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -22,6 +38,7 @@
 		49EE2089226DD9CC0041F3FF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		49EE208C226DD9CC0041F3FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		49EE208E226DD9CC0041F3FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		49EE2094226DDD480041F3FF /* SharedCode.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SharedCode.framework; path = "../../SharedCode/build/xcode-frameworks/SharedCode.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49EE2095226DDD480041F3FF /* SharedCode.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,6 +56,7 @@
 		49EE2076226DD9CA0041F3FF = {
 			isa = PBXGroup;
 			children = (
+				49EE2094226DDD480041F3FF /* SharedCode.framework */,
 				49EE2081226DD9CA0041F3FF /* Komupla */,
 				49EE2080226DD9CA0041F3FF /* Products */,
 			);
@@ -71,9 +90,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 49EE2091226DD9CC0041F3FF /* Build configuration list for PBXNativeTarget "Komupla" */;
 			buildPhases = (
+				49EE2098226DDE1E0041F3FF /* ShellScript */,
 				49EE207B226DD9CA0041F3FF /* Sources */,
 				49EE207C226DD9CA0041F3FF /* Frameworks */,
 				49EE207D226DD9CA0041F3FF /* Resources */,
+				49EE2097226DDD480041F3FF /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -129,6 +150,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		49EE2098226DDE1E0041F3FF /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\ncd \"$SRCROOT/../../SharedCode/build/xcode-frameworks\"\n./gradlew :SharedCode:packForXCode -PXCODE_CONFIGURATION=${CONFIGURATION}\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		49EE207B226DD9CA0041F3FF /* Sources */ = {
@@ -284,6 +325,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G3JSQURKVE;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../../SharedCode/build/xcode-frameworks";
 				INFOPLIST_FILE = Komupla/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -302,6 +345,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G3JSQURKVE;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../../SharedCode/build/xcode-frameworks";
 				INFOPLIST_FILE = Komupla/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
