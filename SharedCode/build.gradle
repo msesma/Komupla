@@ -16,7 +16,7 @@ kotlin {
 
     sourceSets {
         ext.ktor_version = '1.1.3'
-        ext.coroutines_version = '1.1.1'
+        ext.coroutines_version = '1.2.0'
         commonMain.dependencies {
             api 'org.jetbrains.kotlin:kotlin-stdlib-common'
             implementation "io.ktor:ktor-client-core:$ktor_version"
@@ -26,6 +26,7 @@ kotlin {
         androidMain.dependencies {
             api 'org.jetbrains.kotlin:kotlin-stdlib'
             implementation "io.ktor:ktor-client-core-jvm:$ktor_version"
+            implementation "io.ktor:ktor-client-android:$ktor_version"
         }
 
         iosMain.dependencies {
